@@ -20,7 +20,7 @@ main() {
 
   test("Deve retornar um DataSourceException se o datasource falhar", () async {
     when(datasource.pesquisar(any)).thenThrow(Exception());
-    Function resultado = () async => await repository.pesquisar("rapha");
+    Future resultado = repository.pesquisar("rapha");
     expect(resultado, throwsA(isA<DataSourceException>()));
   });
 }

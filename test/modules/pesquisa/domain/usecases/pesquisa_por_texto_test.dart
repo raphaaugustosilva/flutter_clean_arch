@@ -20,10 +20,10 @@ main() {
   test("deve retornar uma PesquisaTextoInvalidoException caso o texto seja inválido", () async {
     when(repository.pesquisar(any)).thenAnswer((_) async => <PesquisaResultado>[]);
 
-    Function resultado = () async => await usecase.executar(null);
+    Future resultado = usecase.executar(null);
     expect(resultado, throwsA(isA<TextoInvalidoException>()));
 
-    resultado = () async => await usecase.executar("");
+    resultado = usecase.executar("");
     expect(resultado, throwsA(isA<TextoInvalidoException>()));
   });
 }
