@@ -12,7 +12,7 @@ class PesquisaPorTextoImpl implements PesquisaPorTexto {
 
   @override
   Future<List<PesquisaResultado>> executar(String textoPesquisa) async {
-    if (textoPesquisa == null || textoPesquisa.isEmpty) throw PesquisaTextoInvalidoException();
+    if (textoPesquisa == null || textoPesquisa.isEmpty) throw TextoInvalidoException();
     return repository.pesquisar(textoPesquisa);
   }
 }

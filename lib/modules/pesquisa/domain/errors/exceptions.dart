@@ -1,3 +1,9 @@
 abstract class PesquisaException implements Exception {}
 
-class PesquisaTextoInvalidoException implements PesquisaException {}
+class TextoInvalidoException implements PesquisaException {}
+
+class DataSourceException implements PesquisaException {
+  final String mensagem;
+
+  DataSourceException({this.mensagem});
+}

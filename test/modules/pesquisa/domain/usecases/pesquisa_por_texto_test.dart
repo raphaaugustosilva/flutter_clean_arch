@@ -21,9 +21,9 @@ main() {
     when(repository.pesquisar(any)).thenAnswer((_) async => <PesquisaResultado>[]);
 
     Function resultado = () async => await usecase.executar(null);
-    expect(resultado, throwsA(isA<PesquisaTextoInvalidoException>()));
+    expect(resultado, throwsA(isA<TextoInvalidoException>()));
 
     resultado = () async => await usecase.executar("");
-    expect(resultado, throwsA(isA<PesquisaTextoInvalidoException>()));
+    expect(resultado, throwsA(isA<TextoInvalidoException>()));
   });
 }
