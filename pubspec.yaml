@@ -16,6 +16,8 @@ dependencies:
   cupertino_icons: ^1.0.0
   dio: ^3.0.10
   flutter_modular: ^2.0.1
+  bloc: ^6.1.0
+  rxdart: ^0.24.1
 
 dev_dependencies:
   mockito:

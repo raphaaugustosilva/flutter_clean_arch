@@ -1,7 +1,8 @@
 class PesquisaResultado {
-  final String titulo;
-  final String conteudo;
+  final String id;
+  final String apelido;
   final String imagem;
+  final String url;
 
-  PesquisaResultado({this.titulo, this.conteudo, this.imagem});
+  PesquisaResultado({this.id, this.apelido, this.imagem, this.url});
 }

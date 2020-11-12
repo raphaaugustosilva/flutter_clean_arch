@@ -17,7 +17,16 @@ class GitHubDataSource implements PesquisaDataSource {
   Future<List<PesquisaResultadoModel>> pesquisar(String textoPesquisa) async {
     final response = await dio.get("https://api.github.com/search/users?q=${textoPesquisa.normalize()}");
     if (response.statusCode == 200) {
-      final list = (response.data["items"] as List).map((e) => PesquisaResultadoModel.fromMap(e)).toList();
+      var jsonList = response.data['items'] as List;
+      var list = jsonList
+          .map((item) => PesquisaResultadoModel(
+                id: item['id'].toString(),
+                apelido: item['login'],
+                imagem: item['avatar_url'],
+                url: item['url'],
+              ))
+          .toList();
+
       return list;
     } else {
       throw DataSourceException();

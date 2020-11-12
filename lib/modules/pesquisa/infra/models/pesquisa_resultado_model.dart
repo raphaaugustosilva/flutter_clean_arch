@@ -2,17 +2,19 @@ import 'dart:convert';
 import 'package:flutter_clean_arch/modules/pesquisa/domain/model/pesquisa_resultado.dart';
 
 class PesquisaResultadoModel extends PesquisaResultado {
-  final String titulo;
-  final String conteudo;
+  final String id;
+  final String apelido;
   final String imagem;
+  final String url;
 
-  PesquisaResultadoModel({this.titulo, this.conteudo, this.imagem});
+  PesquisaResultadoModel({this.id, this.apelido, this.imagem, this.url});
 
   Map<String, dynamic> toMap() {
     return {
-      'titulo': titulo,
-      'conteudo': conteudo,
+      'id': id,
+      'apelido': apelido,
       'imagem': imagem,
+      'url': url,
     };
   }
 
@@ -20,9 +22,10 @@ class PesquisaResultadoModel extends PesquisaResultado {
     if (map == null) return null;
 
     return PesquisaResultadoModel(
-      titulo: map['titulo'],
-      conteudo: map['conteudo'],
+      id: map['id'],
+      apelido: map['apelido'],
       imagem: map['imagem'],
+      url: map['url'],
     );
   }
 
